@@ -36,9 +36,29 @@
         <span>Bet: {{currentBet}}$</span>
       </div>
       <div class="actions">
-        <button class="btn" @click="startGame" v-if="!isGame">Start Game</button>
-        <button class="btn" @click="hit" v-if="isGame" :disabled="disableButton">Hit</button>
-        <button class="btn" @click="stand" v-if="isGame" :disabled="disableButton">Stand</button>
+        <button
+          class="btn"
+          @click="startGame"
+          v-if="!isGame"
+        >
+        Start Game
+        </button>
+        <button
+          class="btn"
+          @click="hit"
+          v-if="isGame"
+          :disabled="disableButton"
+        >
+        Hit
+        </button>
+        <button
+          class="btn"
+          @click="stand"
+          v-if="isGame"
+          :disabled="disableButton"
+        >
+          Stand
+        </button>
         <button
           class="btn"
           @click="doubleBet"
@@ -123,7 +143,7 @@ export default {
       this[hand] = 0;
       array.forEach((el) => {
         if (el.aceCard) {
-          this[hand] = this[hand] + el.cost > 21
+          this[hand] = this[hand] + 11 > 21
             ? this[hand] + 1
             : this[hand] + 11;
         } else {
